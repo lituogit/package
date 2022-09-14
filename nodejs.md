@@ -172,32 +172,32 @@ npm : node package manager
 
 - 可以再另外的一个网站查找包信息 `https://www.npmjs.com/`
 
-npm 使用 	
+	pm 使用 	
 
 	安装模块   1初始化 package.json文件  npm init
 
 			   安装模块 :  npm install  模块名  简写 npm i "模块名"
-
+	
 					      安装指定版本:npm i 模块名称@版本号  
-
+	
 					       例:npm i jquery@2
 
 	删除模块     npm uninstall   模块名    / npm  remove  模块名
 
- 	全局安装和局部安装  
-
+		全局安装和局部安装  
+	
 			     全局安装：一般 工具类型的模块会全局安装，  npm i  模块名  -g，
-
-                             全局安装会装在   npm root -g, 随便在任意目录全局安装,
-
+	
+  	                       全局安装会装在   npm root -g, 随便在任意目录全局安装,
+	
 			     局部安装: 就是安装在命令运行的目录下面    (默认安装    )
 
 	一次性安装所有模块 ：
 
 			npm i  /npm install  自动在目录下查找package.json文件
-
+	
 			把package.json中的  **dependencies(生产依赖)**和**devDependenies(开发依赖)**
-
+	
 			一次性安装到node_modules中
 
 **开发依赖和生产依赖**
@@ -213,22 +213,23 @@ npm 使用
 其他指令:
 
         -npm -h 查看帮助
-
+    
         -npm   search 模块名称
-
+    
         -npm   update 模块名称  ：更新模块依赖
 
 #### 发布自己的模块
 
 	查看npm 源地址  :  'npm  config get registry'    https://registry.npmjs.org/
-
+	
 	注册npm账号和密码   https://www.npmjs.com/  邮箱验证
 	添加用户名和密码:  [npm adduser]   根据提示  填写用户名和密码
+
 
 	
 
 	准备自己的npm模块，推送到服务器中,npm包的名称不能和现有的名称 
-
+	
 	需要有package.json 文件
 
 t	推送到线上  npm publish
@@ -243,6 +244,31 @@ t	推送到线上  npm publish
 - 查看本地npm 源地址：`npm config get registry`
 
 
+
+#### yarn  包管理工具
+
+```	 
+yarn 是Facebook  出品的指令，和npm功能一样
+yarn使用   （常用指令）
+    全局安装yarn：  npm i yarn -g;
+   	通过yarn  取代  npm指令；
+   	yarn --version  查看yarn 的版本类似  npm -v
+   	yarn init  类似 npm init
+   	yarn  add 模块名  类似npm install
+   	yarn  global  add 模块名  全局安装 类似 npm 模块名 -g
+   	查看 yarn 全局安装的目录 :yarn global dir
+   	安装开发依赖 yarn add 模块名 --dev
+   	安装生产依赖  默认安装  yarn add   --save
+   	安装所有依赖  yarn  类似  npm i;
+   	删除依赖  yarn remove 模块名称  类似 npm remove 模块名称
+    查看下载源   yarn config get registry 
+    
+    
+    
+    // cyarn  china  yarn 使用一直  下载源为淘宝
+    安装  npm i cyarn -g  
+
+```
 
 
 
