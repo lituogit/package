@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 点击获取查询参
+        document.onclick = function () {
+            console.log(location.search);
+        }
+        let arr = [
+            { name: "zhangsan", psw: 123, id: 1 },
+            { name: "zhangsan2", psw: 123, id: 13 }
+        ]
+        let obj1 = arr.find((item, index) => item.name == "zhangsan")
+
+        if (obj1.name == "zhangsan" && obj1.psw == 123) {
+            console.log("密码正确");
+        }
+        console.log(obj1);
+
+    </script>
+</body>
+
+</html>
