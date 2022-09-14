@@ -309,9 +309,17 @@ Buffer.concat([newbuffer1,newbuffer2])
 
 ```
 引入内置模块   操作文件
-
+const  fs = require("fs");
 文件操作方式
 文件操作（带后缀名的文件）   目录（文件夹）操作
+fs.writeFile(文件操作,写入内容)
+所有的nodejs的文件操作都会分成2大类：
+同步操作 
+		函数后面都要加上 sync修饰符
+		
+异步操作 
+	    异步操作都会有回调
+	    
 ```
 
 
