@@ -172,32 +172,32 @@ npm : node package manager
 
 - 可以再另外的一个网站查找包信息 `https://www.npmjs.com/`
 
-	pm 使用 	
+	npm 使用 	
 
 	安装模块   1初始化 package.json文件  npm init
 
 			   安装模块 :  npm install  模块名  简写 npm i "模块名"
-	
+		
 					      安装指定版本:npm i 模块名称@版本号  
-	
+		
 					       例:npm i jquery@2
 
 	删除模块     npm uninstall   模块名    / npm  remove  模块名
 
 		全局安装和局部安装  
-	
+		
 			     全局安装：一般 工具类型的模块会全局安装，  npm i  模块名  -g，
-	
+		
   	                       全局安装会装在   npm root -g, 随便在任意目录全局安装,
-	
+		
 			     局部安装: 就是安装在命令运行的目录下面    (默认安装    )
 
 	一次性安装所有模块 ：
 
 			npm i  /npm install  自动在目录下查找package.json文件
-	
+		
 			把package.json中的  **dependencies(生产依赖)**和**devDependenies(开发依赖)**
-	
+		
 			一次性安装到node_modules中
 
 **开发依赖和生产依赖**
@@ -270,11 +270,49 @@ yarn使用   （常用指令）
 
 ```
 
+#### nodemon 工具
+
+```
+nodemon 工具指令类似node执行
+nodemon  当nodejs文件发生改变的时候会自动重启服务器
+1.全局安装nodemon  模块： npm i nodemon -g
+2.使用nodemon 指令 替代 node 指令 即可使用
 
 
+// 可能会出现系统进制脚本运行的问题
+1,使用管理员身份打开  powershell
+2.输入 ：set-executionpolicy remotesigned  输入y
+```
 
+#### buffer 数据
 
+```
+nodejs 里叫做缓冲区 是一种二进制数据
+在nodejs里会把数据自动转成buffer   以16进制 表现
 
+buffer的创建
+方式1：  创建buffer的同时，会清空内存里之前的数据
+Buffer.alloc(4,1)   01 01 01 01
+方式2：  创建buffer  会直接使用之前的内存空间，速度块
+Buffer.allocUnsafe(10);
+res.fill(1)  //  给buffer数据填充内容
+方式3：
+Buffer.from("大家好")
+
+把buffer数据转成字符串：
+toString（）；
+合并多个Buffer  
+Buffer.concat([newbuffer1,newbuffer2])
+```
+
+#### 文件操作
+
+```
+引入内置模块   操作文件
+
+文件操作方式
+文件操作（带后缀名的文件）   目录（文件夹）操作
+```
 
 
 
