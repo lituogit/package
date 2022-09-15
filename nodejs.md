@@ -316,15 +316,64 @@ fs.writeFile(文件操作,写入内容)
 所有的nodejs的文件操作都会分成2大类：
 同步操作 
 		函数后面都要加上 sync修饰符
+		fs.writeFileSync(文件，写入内容)
+		try{放入尝试执行的代码} catch{抓捕错误}
 		
 异步操作 
 	    异步操作都会有回调
+	    fs.writeFile 
 	    
 ```
 
+```
+//fs内置模块 全称fs.readFile()用于操作文件的内容
+// 1.导入fs模块
+const fs=require('fs')
+// 一。fs.readFile读取指定文件的内容
+fs.readFile("./dwad.txt", 'utf-8', (err,datastr)=> {
+  if (err) {//参数一path文件路径（必选），参数二：以什么编码格式进行读取，参数三：回调函数中err为读取失败的返回值，若读取成功则为null，datastr为读取的数据，如果没有指定编码格式则以 Buffer显示
+    return  console.log(err);
+  }
+  console.log('读取成功!:'+datastr);
+})
+
+// 二。fs.writeFile()向指定的文件中写入内容(只能写入同一文件，新写入的会覆盖)
+fs.writeFile('./dwad.txt', '刘江城大帅逼！！！', (err) => {//参数一是要写入文件的路径，参数二要写入的内容
+  //参数三：回调函数err代表写入执行后返回的错误，若没有错误则err为null
+  if (err) {
+    console.log(111);
+    return console.log(err.message);//err.message代表写入时的错误信息
+  }
+  console.log('写入成功');
+})
+```
+
+#### Express
+
+````
+基于nodejs内置的http模块 进一步封装出来的
+
+安装： npm  express@4.17.1
+
+导入 express   =require("express)
+创建服务器  app = express();
+启动服务器  app.listen(端口号,回调执行函数)
+
+请求方法  git  和 post     app.git("请求URL", (res,req)=>)    app.post
+     可以调用 res.send方法  响应一个具体对象或字符串
+req.query 获取查询参  默认是一个空对象
+req.params 对象访问URL中   通过 : 来匹配动态参数
+````
+
+Express  托管静态资源
+
+      express.static()      li:   app.use( express.static('public')  ) 通过localhost:8080/css/index.css
 
 
 
+      托管多个静态目录，调用多次即可， 查找文件的先后循序等于托管的先后循序
+
+   	/*  express 在指定的静态目录中查找文件，并对外提供资源的访问路径，因此，存放静态文件的**目录名不会出现在URL中**    */
 
 
 
