@@ -395,6 +395,32 @@ url.parse方法         可以处理url 字符串   参数2为true时把url 转�
 
 
 
+#### 文件路径
+
+进程 process
+
+process.argv  是一个数据  **路径1** nodejs执行文件的路径  **路径二**：执行js的绝对的路径
+
+process.exit()  退出进程
+
+process.cwd()  获取nodejs命令执行的路径，指到目录
+
+
+
+**全局路径**
+
+__dirname  执行文件的上层目录的绝对路径
+
+__filename:当前执行文件的绝对路径 指到文件
+
+
+
+
+
+
+
+
+
 
 
 
