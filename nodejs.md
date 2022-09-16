@@ -312,7 +312,8 @@ Buffer.concat([newbuffer1,newbuffer2])
 const  fs = require("fs");
 文件操作方式
 文件操作（带后缀名的文件）   目录（文件夹）操作
-fs.writeFile(文件操作,写入内容)
+
+fs.writeFile(文件写入内容)
 所有的nodejs的文件操作都会分成2大类：
 同步操作 
 		函数后面都要加上 sync修饰符
@@ -321,8 +322,63 @@ fs.writeFile(文件操作,写入内容)
 		
 异步操作 
 	    异步操作都会有回调
-	    fs.writeFile 
+	    fs.writeFile()=>
 	    
+	    
+fs.readFile  文件读取
+异步读取      异步读取都是由回调函数
+fs.readFile('./data.txt',()=>)
+同步读取     同步读取文件没有回调
+fs.readFileSync
+
+
+修改文件   fs.rename
+只能修改文件名
+fs.rename('./data.txt','content',err=>{
+    if(err){
+     return   log(err)
+    }
+    log(sucess)
+})
+
+
+修改文件内容 ：没有方法   （思路） 先读取 再修改  再写入
+
+
+文件删除  fs.unlink
+复制文件  fs.copyFile
+判断文件是否存在  fs.existsSync   判断只有同步
+
+判断文件是目录还是文件
+先获取文件详细信息  
+fs.statSync
+通过返回详细信息  使用  isFile 方法判断  
+```
+
+#### 目录操作
+
+```
+创建目录
+fs.mkdir  ('./uploads',0777)  同步加Sync
+0777 0代表八进制  第一个7：所有者  第二个7：组权限  第三个7：所有人
+7 = 1+2+4  1：可执行  2：可写  3：可读
+
+读取目录  
+fs.readdir  读出的内容会返回一个数组 ，只读取一层
+
+删除目录  只能删除空目录
+fs.rmdir
+
+修改目录   修改目录名
+fs.rename
+
+判断指定路径目录是否存在
+fs.existsSync
+
+判断是否是文件夹
+先获取项目详细信息
+fs.statSync
+通过详细信息判断  isDirectory
 ```
 
 
