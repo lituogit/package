@@ -305,7 +305,7 @@ toString（）；
 Buffer.concat([newbuffer1,newbuffer2])
 ```
 
-#### 文件操作
+#### 文件操作fs
 
 ```
 引入内置模块   操作文件
@@ -325,28 +325,31 @@ fs.writeFile(文件操作,写入内容)
 	    
 ```
 
-```
-//fs内置模块 全称fs.readFile()用于操作文件的内容
-// 1.导入fs模块
-const fs=require('fs')
-// 一。fs.readFile读取指定文件的内容
-fs.readFile("./dwad.txt", 'utf-8', (err,datastr)=> {
-  if (err) {//参数一path文件路径（必选），参数二：以什么编码格式进行读取，参数三：回调函数中err为读取失败的返回值，若读取成功则为null，datastr为读取的数据，如果没有指定编码格式则以 Buffer显示
-    return  console.log(err);
-  }
-  console.log('读取成功!:'+datastr);
-})
 
-// 二。fs.writeFile()向指定的文件中写入内容(只能写入同一文件，新写入的会覆盖)
-fs.writeFile('./dwad.txt', '刘江城大帅逼！！！', (err) => {//参数一是要写入文件的路径，参数二要写入的内容
-  //参数三：回调函数err代表写入执行后返回的错误，若没有错误则err为null
-  if (err) {
-    console.log(111);
-    return console.log(err.message);//err.message代表写入时的错误信息
-  }
-  console.log('写入成功');
-})
-```
+
+#### url内置模块
+
+使用url 模块 需要引入 
+
+url.parse方法         可以处理url 字符串   参数2为true时把url 转为对象
+
+例：url.parse(req.url).query  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Express
 
@@ -374,6 +377,22 @@ Express  托管静态资源
       托管多个静态目录，调用多次即可， 查找文件的先后循序等于托管的先后循序
 
    	/*  express 在指定的静态目录中查找文件，并对外提供资源的访问路径，因此，存放静态文件的**目录名不会出现在URL中**    */
+
+
+
+**Express 中的路由**
+
+在Express 中，路由指的是客户端的请求与服务器处理函数之间的映射关系
+
+Express 中的路由分为3个部分组成，分别是**请求的类型**，**请求的URL地址**，**处理函数**  格式如下：
+
+         类型              URL      处理函数
+
+ app.METHOD（PATH,HANDLER）
+
+
+
+
 
 
 
