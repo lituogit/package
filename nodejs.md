@@ -308,6 +308,9 @@ Buffer.concat([newbuffer1,newbuffer2])
 #### 文件操作fs
 
 ```
+同步：都有sync修饰符，结果值是返还值形式接收
+异步：通过回调来处理错误和接收返还值
+
 引入内置模块   操作文件
 const  fs = require("fs");
 文件操作方式
@@ -350,7 +353,7 @@ fs.rename('./data.txt','content',err=>{
 判断文件是否存在  fs.existsSync   判断只有同步
 
 判断文件是目录还是文件
-先获取文件详细信息  
+先获取文件详细信息对象
 fs.statSync
 通过返回详细信息  使用  isFile 方法判断  
 ```
@@ -405,8 +408,6 @@ process.exit()  退出进程
 
 process.cwd()  获取nodejs命令执行的路径，指到目录
 
-
-
 **全局路径**
 
 __dirname  执行文件的上层目录的绝对路径
@@ -415,11 +416,43 @@ __filename:当前执行文件的绝对路径 指到文件
 
 
 
+#### path内置模块
+
+path.resove  获取路径的绝对地址 ，可以帮你处理和拼接多个路径，返还一个绝对路径
+
+path.join()   处理路径并且拼接  返回输入的地址拼接
+
+path.dirname （） 获取路径中的目录地址
+
+path.extname() 获取地址文件的后缀名
 
 
 
+#### 系统事件
 
+事件系统，处理事件
 
+基于一种设计模式，设计处理，观察者模式，自定义事件
+
+预定义事件，系统已经定义好的事件
+
+```
+引入事件类
+myevent =  require('events')
+触发事件
+事件实例.emit('触发事件')
+绑定事件 
+on绑定（事件名，事件函数）
+onec      只会执行一次
+
+移出事件
+off  （事件名，事件函数）
+removeListener
+removeAllListener  删除所有绑定事件
+
+查看绑定的事件个数
+事件实例.listenerCount（事件名称）
+```
 
 
 
